@@ -3,24 +3,24 @@ name: Docker Image CI/CD
 on:
   push:
     branches:
-      - main
+      - main  # Csak a main branch-re történő push aktiválja a workflow-t
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Az ubuntu-latest runneren fut a job
     
     steps:
       - name: Repository klónozása
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # A repository klónozása a workflow futtatásához
 
       - name: Bejelentkezés a Docker Hub-ba
-        uses: docker/login-action@v3
+        uses: docker/login-action@v3  # A Docker Hub-ba történő bejelentkezés
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}  # A Docker Hub felhasználónév GitHub Secrets-ből
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}  # A Docker Hub API token a GitHub Secrets-ből
 
       - name: Docker image buildelése
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/homework:latest .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/homework:latest .  # Docker image építése a Dockerfile alapján a root mappából
 
       - name: Image feltöltése a Docker Hubra
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/homework:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/homework:latest  # Docker image feltöltése a Docker Hub-ra
