@@ -1,8 +1,8 @@
-# Alapértelmezett Nginx image
-FROM nginx:alpine
+# Alapértelmezett Nginx Debian alapú image
+FROM nginx:latest
 
 # Locale beállítása UTF-8-ra
-RUN apk update && apk add --no-cache locales && \
+RUN apt-get update && apt-get install -y locales && \
     echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8
