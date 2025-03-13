@@ -32,3 +32,5 @@ Feltölti az image-et a Docker Hub repository-ba homework:latest néven.
 ## 🔒 Titkos információk kezelése
 A Docker Hub felhasználónév és jelszó (token) NINCS a repository-ban.
 Az érzékeny adatok a GitHub Secrets segítségével kerülnek beállításra (DOCKER_USERNAME, DOCKER_PASSWORD).
+
+TESZT_1
