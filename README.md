@@ -15,8 +15,11 @@ A cél egy **CI/CD pipeline létrehozása GitHub Actions segítségével**, amel
 ## 🚀 **Használat**
 
 ### 1️⃣ **Docker image letöltése és futtatása**
-A kész image futtatásához használd az alábbi parancsot:
-docker run -p 8080:80 DOCKERHUB_USERNAME/homework:latest
+A kész image letöltéséhez használd ezt a parancsot:
+`docker pull DOCKERHUB_USERNAME/homework:latest`
+
+Az image futtatásához használd ezt a parancsot:
+`docker run -p 8080:80 DOCKERHUB_USERNAME/homework:latest`
 
 Ezután nyisd meg a böngészőt: http://localhost:8080
 A főoldalon a következő szövegnek kell megjelennie:
